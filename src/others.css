@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+body svg {
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 80px;
+}
+
+.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.header span {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.header .links {
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    right: 50px;
+}

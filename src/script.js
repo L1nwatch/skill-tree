@@ -168,11 +168,38 @@ var diagonal = d3.svg.diagonal.radial()
         return [d.y, d.x / 180 * Math.PI];
     });
 
+var headerHeight = document.querySelector(".header").offsetHeight;
+
+var width = window.innerWidth / 2,   // Use full window width
+    height = window.innerHeight - headerHeight; // Subtract header height
+
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
+    .style("display", "block") // Ensure it's centered horizontally
+    .style("margin", "0 auto") // Center horizontally
+    .style("position", "absolute") // Allow precise positioning
+    .style("top", headerHeight + "px") // Push below header
+    .style("left", "50%") // Center horizontally
+    .style("transform", "translateX(-50%)") // Adjust to center
+    .style("margin-top", headerHeight + "px") // Move SVG below the header
     .append("g")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+
+// Update frame height to full screen
+d3.select(self.frameElement).style("width", "100vw").style("height", "100vh");
+
+// Make it responsive on window resize
+window.addEventListener("resize", function () {
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    d3.select("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+});
 
 root = pubs;
 root.x0 = height / 2;
@@ -181,7 +208,6 @@ root.y0 = 0;
 //root.children.forEach(collapse); // start with all children collapsed
 update(root);
 
-d3.select(self.frameElement).style("height", "800px");
 
 function update(source) {
 
@@ -191,7 +217,7 @@ function update(source) {
 
     // Normalize for fixed-depth.
     nodes.forEach(function (d) {
-        d.y = d.depth * 80;
+        d.y = d.depth * 100;
     });
 
     // Update the nodes…
@@ -204,7 +230,7 @@ function update(source) {
     var nodeEnter = node.enter().append("g")
         .attr("class", "node")
         .attr("transform", function (d) {
-            // return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")";
+            return "rotate(" + (d.x ? d.x - 90 : 0) + ")translate(" + (d.y || 0) + ")";
         })
         .on("click", click);
 
@@ -230,8 +256,11 @@ function update(source) {
     var nodeUpdate = node.transition()
         .duration(duration)
         .attr("transform", function (d) {
-            return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 0) + ")"; // Add spacing
+            return "rotate(" + (d.x ? d.x - 90 : 0) + ")translate(" + (d.y || 0) + ")";
         })
+    // Ensure root node has valid initial values
+    root.x0 = root.x0 || height / 2;
+    root.y0 = root.y0 || 0;
 
     nodeUpdate.select("circle")
         .attr("r", 10)
@@ -269,20 +298,25 @@ function update(source) {
     link.enter().insert("path", "g")
         .attr("class", "link")
         .attr("d", function (d) {
-            var o = {x: source.x0, y: source.y0};
+            var o = {x: d.source.x || 0, y: d.source.y || 0}; // Fallback to 0 if undefined
             return diagonal({source: o, target: o});
         });
 
     // Transition links to their new position.
     link.transition()
         .duration(duration)
-        .attr("d", diagonal);
+        .attr("d", function (d) {
+            var oSource = {x: d.source.x || 0, y: d.source.y || 0}; // Ensure valid source
+            var oTarget = {x: d.target.x || 0, y: d.target.y || 0}; // Ensure valid target
+            return diagonal({source: oSource, target: oTarget});
+        });
+
 
     // Transition exiting nodes to the parent's new position.
     link.exit().transition()
         .duration(duration)
         .attr("d", function (d) {
-            var o = {x: source.x, y: source.y};
+            var o = {x: d.source.x || 0, y: d.source.y || 0}; // Fallback to valid numbers
             return diagonal({source: o, target: o});
         })
         .remove();

@@ -8,13 +8,6 @@ body {
     height: 100vh;
 }
 
-body svg {
-    display: block;
-    margin: auto;
-    position: relative;
-    top: 80px;
-}
-
 .header {
     background-color: #4CAF50;
     color: white;

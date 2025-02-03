@@ -58,16 +58,22 @@ var tree = d3.layout.tree()
         return (a.parent == b.parent ? 1 : 10) / a.depth;
     });
 
-var svg = d3.select("body").append("svg")
-    .attr("width", adjust_width)
-    .attr("height", adjust_height)
-    .style("display", "block") // Ensure it's centered horizontally
+// Create a scrollable container for the SVG
+var container = d3.select("body").append("div")
+    .style("width", "100vw")
+    .style("height", "100vh")
     .style("margin", "0 auto") // Center horizontally
-    .style("position", "absolute") // Allow precise positioning
+    .style("overflow", "auto") // Enable scrolling
     .style("top", headerHeight + "px") // Push below header
+    .style("position", "relative");
+
+var svg = container.append("svg")
+    .attr("width", adjust_width)
+    .attr("height", 900)
+    .style("display", "block") // Ensure it's centered horizontally
+    .style("position", "absolute") // Allow precise positioning
     .style("left", "50%") // Center horizontally
     .style("transform", "translateX(-50%)") // Adjust to center
-    .style("margin-top", "10px") // Move SVG below the header
     .append("g")
     .attr("transform", "translate(" + adjust_width / 2 + "," + adjust_height / 2 + ")");
 

@@ -35,4 +35,12 @@ body {
     gap: clamp(5px, 2vw, 15px);
     position: absolute;
     right: 50px;
+    top: 50%; /* Move to the middle */
+    transform: translateY(-50%); /* Center vertically */
+    height: auto; /* Allow it to adjust based on content */
+}
+
+.header .links img {
+    max-width: 30px; /* Set max size to prevent oversized icons */
+    max-height: 30px;
 }

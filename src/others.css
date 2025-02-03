@@ -19,19 +19,20 @@ body {
     left: 0;
     z-index: 1000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
+    bottom: auto;
 }
 
 .header span {
-    font-size: 48px;
+    font-size: clamp(24px, 5vw, 48px);
     font-weight: bold;
 }
 
 .header .links {
     display: flex;
-    gap: 30px;
+    gap: clamp(5px, 2vw, 15px);
     position: absolute;
     right: 50px;
 }

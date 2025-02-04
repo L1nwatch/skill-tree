@@ -152,7 +152,7 @@ var pubs = {
               "name": "Wireshark"
             },
             {
-              "name": "tcpdump"
+              "name": "Appium"
             },
             {
               "name": "Kali Linux"

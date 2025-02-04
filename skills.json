@@ -54,7 +54,7 @@
             },
             {
               "name": "Jenkins (2 years)",
-              "description": ""
+              "description": "I have experience using Jenkins to build CI/CD pipelines for multiple projects and versions. This includes configuring webhooks to monitor Git push events, automating test execution, and deploying applications to different environments."
             },
             {
               "name": "GitLab (1 year)",

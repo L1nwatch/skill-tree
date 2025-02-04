@@ -1,14 +1,14 @@
 var headerHeight = getHeaderGap();
 
+var adjust_width = Math.max(650, window.innerWidth);
+var adjust_height = Math.max(820, window.innerHeight - headerHeight);
 
-var adjust_width = window.innerWidth,   // Use full window width
-    adjust_height = window.innerHeight - headerHeight; // Subtract header height
-
-
-var diameter = Math.min(adjust_width, adjust_height) * 0.9; // Scale to 90% of the smaller dimension
+var diameter = Math.min(adjust_width, adjust_height);
+var root_x = adjust_width <= 650 ? 280 : adjust_width / 2;
+var root_y = Math.max(380, (diameter + headerHeight) / 2);
 
 var tree = d3.layout.tree()
-    .size([360, diameter / 2 - 80])
+    .size([360, diameter / 2])
     .separation(function (a, b) {
         return (a.parent == b.parent ? 1 : 10) / a.depth;
     });
@@ -19,19 +19,22 @@ var container = d3.select("body").append("div")
     .style("height", "100vh")
     .style("margin", "0 auto") // Center horizontally
     .style("overflow", "auto") // Enable scrolling
-    .style("top", headerHeight + "px") // Push below header
     .style("position", "relative");
 
-var svg = container.append("svg")
-    .attr("width", adjust_width)
-    .attr("height", 900)
+var g_container = container.append("svg")
+    .attr("width", Math.max(adjust_width, root_x * 2))
+    .attr("height", Math.max(adjust_height, root_y * 2))
     .style("display", "block") // Ensure it's centered horizontally
-    .style("position", "absolute") // Allow precise positioning
-    .style("left", "50%") // Center horizontally
-    .style("transform", "translateX(-50%)") // Adjust to center
-    .append("g")
-    .attr("transform", "translate(" + adjust_width / 2 + "," + adjust_height / 2 + ")");
+    .style("position", "absolute") // Allow precise positioning;
 
+var svg = g_container.append("g")
+    .attr("transform", "translate(" + root_x + "," + root_y + ")");
+
+
+if (adjust_width > 700) {
+    g_container.style("left", "50%") // Center horizontally
+    g_container.style("transform", "translateX(-50%)") // Adjust to center
+}
 
 var margin = {top: 20, right: 120, bottom: 20, left: 120};
 
@@ -62,11 +65,8 @@ d3.select(self.frameElement).style("width", "100vw").style("height", "100vh");
 window.addEventListener("resize", function () {
     d3.select("svg")
         .attr("width", adjust_width)
-        .attr("height", adjust_height)
-        .style("margin", "0 auto") // Center horizontally
-        .style("margin-top", "10px") // Move SVG below the header; // Adjust dynamically;
-
-    svg.attr("transform", "translate(" + adjust_width / 2 + "," + adjust_height / 2 + ")");
+        .attr("height", Math.max(adjust_height, root_y * 2))
+    svg.attr("transform", "translate(" + root_x + "," + root_y + ")");
 });
 
 root = pubs;

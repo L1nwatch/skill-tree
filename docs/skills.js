@@ -117,7 +117,7 @@ var pubs = {
               "name": "Web (4 years)"
             },
             {
-              "name": "Mobile Application (2 years)"
+              "name": "MobileApp (2 years)"
             },
             {
               "name": "AI-based (2 years)"

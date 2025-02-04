@@ -1,48 +1,3 @@
-var pubs = {
-    "name": "AUT-1", "children": [{
-        "name": "PUB-1", "children": [{
-            "name": "AUT-11", "children": [{"name": "AFF-111"}, {"name": "AFF-112"}]
-        }, {
-            "name": "AUT-12", "children": [{"name": "AFF-121"}]
-        }, {
-            "name": "AUT-13", "children": [{"name": "AFF-131"}, {"name": "AFF-132"}]
-        }, {
-            "name": "AUT-14", "children": [{
-                "name": "AFF-141", "children": [{"name": "ADD-1411"}, {"name": "ADD-1412"}]
-            }]
-        }]
-    }, {
-        "name": "PUB-2",
-        "children": [{"name": "AUT-21"}, {"name": "AUT-22"}, {"name": "AUT-23"}, {"name": "AUT-24"}, {"name": "AUT-25"}, {"name": "AUT-26"}, {"name": "AUT-27"}, {
-            "name": "AUT-28",
-            "children": [{"name": "AFF-281"}, {"name": "AFF-282"}, {"name": "AFF-283"}, {"name": "AFF-284"}, {"name": "AFF-285"}, {"name": "AFF-286"}]
-        }]
-    }, {"name": "PUB-3"}, {
-        "name": "PUB-4", "children": [{"name": "AUT-41"}, {"name": "AUT-42"}, {
-            "name": "AUT-43", "children": [{"name": "AFF-431"}, {"name": "AFF-432"}, {"name": "AFF-433"}, {
-                "name": "AFF-434", "children": [{"name": "ADD-4341"}, {"name": "ADD-4342"},]
-            }]
-        }, {"name": "AUT-44"}]
-    }, {
-        "name": "PUB-5", "children": [{
-            "name": "AUT-51",
-            "children": [{"name": "AFF-511"}, {"name": "AFF-512"}, {"name": "AFF-513"}, {"name": "AFF-514"}, {"name": "AFF-515"}, {"name": "AFF-516"}]
-        }, {"name": "AUT-52"}, {"name": "AUT-53"}, {"name": "AUT-54"}, {
-            "name": "AUT-55",
-            "children": [{"name": "AFF-551"}, {"name": "AFF-552"}, {"name": "AFF-553"}, {"name": "AFF-554"}]
-        }, {"name": "AUT-56"}, {"name": "AUT-57"}, {"name": "AUT-58"}, {"name": "AUT-59"}, {"name": "AUT-591"}, {"name": "AUT-592"}, {"name": "AUT-593"}, {"name": "AUT-594"}, {"name": "AUT-595"}, {"name": "AUT-596"}]
-    }, {
-        "name": "PUB-6", "children": [{
-            "name": "AUT-61", "children": [{"name": "AFF-611"}, {"name": "AFF-612"}, {"name": "AFF-613"}, {
-                "name": "AFF-614", "children": [{"name": "ADD-6141"}, {
-                    "name": "ADD-6142", "children": [{"name": "333333321"},]
-                },]
-            }]
-        }, {"name": "AUT-62"}, {"name": "AUT-63"}, {"name": "AUT-64"}, {"name": "AUT-65"}, {"name": "AUT-66"}, {"name": "AUT-67"}, {"name": "AUT-68"}, {"name": "AUT-69"}]
-    }]
-};
-
-
 var headerHeight = getHeaderGap();
 
 
@@ -100,7 +55,6 @@ function getHeaderGap() {
     return Math.min(Math.max(headerHeight, window.innerHeight * 0.05), window.innerHeight * 0.15);
 }
 
-
 // Update frame height to full screen
 d3.select(self.frameElement).style("width", "100vw").style("height", "100vh");
 
@@ -150,8 +104,8 @@ function update(source) {
     nodeEnter.append("circle")
         .attr("r", 1e-6)
         .style("fill", function (d) {
-            return d._color || (d._color = getRandomColor());
-            // return d._children ? "lightsteelblue" : "#fff";
+            // return d._color || (d._color = getRandomColor());
+            return d._children ? "lightsteelblue" : "#fff";
         });
 
     nodeEnter.append("text")
@@ -178,8 +132,9 @@ function update(source) {
     nodeUpdate.select("circle")
         .attr("r", 10)
         .style("fill", function (d) {
-            return d._color;
+            // return d._color;
             // return d._children ? "lightsteelblue" : "#fff";
+            return d === root ? getRandomColor() : (d._children ? "lightsteelblue" : "#fff");
         });
 
     nodeUpdate.select("text")
@@ -241,8 +196,82 @@ function update(source) {
     });
 }
 
-// Toggle children on click.
+// Function to show a detailed description box
+function showDescriptionBox(title, description) {
+    let descriptionBox = document.getElementById("description-box");
+
+    if (!descriptionBox) {
+        // Create the box if it doesn't exist
+        descriptionBox = document.createElement("div");
+        descriptionBox.id = "description-box";
+        descriptionBox.style.position = "fixed";
+        descriptionBox.style.top = "-300px";  // Initially hidden
+        descriptionBox.style.left = "50%";
+        descriptionBox.style.transform = "translateX(-50%)";
+        descriptionBox.style.background = "#fff";
+        descriptionBox.style.color = "#333";
+        descriptionBox.style.padding = "15px 20px";
+        descriptionBox.style.borderRadius = "8px";
+        descriptionBox.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.2)";
+        descriptionBox.style.transition = "top 0.5s ease-in-out";
+        descriptionBox.style.zIndex = "9999";
+        descriptionBox.style.width = "300px";
+        descriptionBox.style.maxWidth = "90%";
+        descriptionBox.style.display = "flex";
+        descriptionBox.style.flexDirection = "column";
+        descriptionBox.style.gap = "10px";
+
+        // Title
+        let titleElem = document.createElement("h3");
+        titleElem.id = "description-title";
+        titleElem.style.margin = "0";
+        titleElem.style.fontSize = "18px";
+        titleElem.style.color = "#000";
+
+        // Description
+        let descriptionElem = document.createElement("p");
+        descriptionElem.id = "description-content";
+        descriptionElem.style.margin = "0";
+        descriptionElem.style.fontSize = "14px";
+        descriptionElem.style.color = "#555";
+
+        // Close button
+        let closeButton = document.createElement("button");
+        closeButton.textContent = "Close";
+        closeButton.style.background = "#007BFF";
+        closeButton.style.border = "none";
+        closeButton.style.color = "#fff";
+        closeButton.style.padding = "8px 12px";
+        closeButton.style.borderRadius = "5px";
+        closeButton.style.cursor = "pointer";
+        closeButton.style.alignSelf = "flex-end";
+
+        closeButton.onclick = function () {
+            descriptionBox.style.top = "-300px"; // Slide up to hide
+        };
+
+        descriptionBox.appendChild(titleElem);
+        descriptionBox.appendChild(descriptionElem);
+        descriptionBox.appendChild(closeButton);
+        document.body.appendChild(descriptionBox);
+    }
+
+    // Update the content
+    document.getElementById("description-title").textContent = title;
+    document.getElementById("description-content").textContent = description;
+
+    descriptionBox.style.top = "20px"; // Slide down effect
+}
+
+// Modify the click function
 function click(d) {
+    if (!d.children && !d._children) {
+        // If the node has no children, it's a leaf node
+        if (d.description) {
+            showDescriptionBox("Experience with: " + d.name, d.description);
+        }
+    }
+
     if (d.children) {
         d._children = d.children;
         d.children = null;
@@ -253,6 +282,7 @@ function click(d) {
 
     update(d);
 }
+
 
 // Collapse nodes
 function collapse(d) {

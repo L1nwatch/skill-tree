@@ -2,11 +2,13 @@
 
 Generate a skill tree based on my personal skill set.
 
+[l1nwatch.github.io/skill-tree/](https://l1nwatch.github.io/skill-tree/)
+
 ## How to use
 
-1. edit skills.json to add your own skills
-2. run `python3 generate.py` to generate the html file
-3. open the generated html file in your browser
+1. edit `skills.json` to add your own skills, follow the current format
+2. run `python3 generate.py` to generate the web pages
+3. open the `docs/index.html` file in your browser
 
 ## Acknowledgements
 

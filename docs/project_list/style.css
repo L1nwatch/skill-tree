@@ -242,3 +242,12 @@ a:hover, a:focus {
     border-radius: 3px;
     margin: 5px; /* Add margin to create space between labels */
 }
+
+.label-item {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 5px; /* Add margin to create space between labels */
+    display: inline-block; /* Display labels inline */
+}

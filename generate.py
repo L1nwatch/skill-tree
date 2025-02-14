@@ -27,16 +27,16 @@ def generate_skills():
 
 def generate_projects():
     json_file = os.path.join(os.path.dirname(__file__), "projects.json")
-    js_file = os.path.join(os.path.dirname(__file__), "docs", "project_list", "projects.js")
+    js_file = os.path.join(os.path.dirname(__file__), "docs", "project_list", "projects_info.js")
     with open(json_file, 'r') as f:
         projects = json.load(f)
 
-    js_content = "const projects = " + json.dumps(projects, indent=4) + ";"
+    js_content = "const projects_info = " + json.dumps(projects, indent=4) + ";"
 
     with open(js_file, 'w') as f:
         f.write(js_content)
 
-    print("JSON data has been written to projects.js")
+    print("JSON data has been written to projects_info.js")
 
 
 if __name__ == "__main__":

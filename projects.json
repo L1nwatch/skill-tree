@@ -1,14 +1,21 @@
 [
-    {
-        "title": "aaaa",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi suscipit obcaecati cumque fugit quia ullam",
-        "labels": ["JavaScript", "Web Development"],
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/324479/me.jpg"
-    },
-    {
-        "title": "RGA",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi suscipit obcaecati cumque fugit quia ullam",
-        "labels": ["Python", "Data Analysis"],
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/324479/me.jpg"
-    }
+  {
+    "title": "aaaa",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi suscipit obcaecati cumque fugit quia ullam",
+    "labels": [
+      "JavaScript",
+      "CI/CD",
+      "Python",
+      "Flask",
+      "Web Development"
+    ]
+  },
+  {
+    "title": "RGA",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi suscipit obcaecati cumque fugit quia ullam",
+    "labels": [
+      "Python",
+      "Data Analysis"
+    ]
+  }
 ]

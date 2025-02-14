@@ -4,14 +4,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const labelCounts = {};
 
-    projects_info.forEach(project => {
+    // Sort projects_info based on the number of labels
+    const sortedProjects = projects_info.sort((a, b) => b.labels.length - a.labels.length);
+
+    sortedProjects.forEach(project => {
         project.labels.forEach(label => {
-            if (labelCounts[label]) {
-                labelCounts[label]++;
+            const lowerCaseLabel = label.toLowerCase();
+            const capitalizedLabel = lowerCaseLabel.charAt(0).toUpperCase() + lowerCaseLabel.slice(1);
+            if (labelCounts[capitalizedLabel]) {
+                labelCounts[capitalizedLabel]++;
             } else {
-                labelCounts[label] = 1;
+                labelCounts[capitalizedLabel] = 1;
             }
         });
+
+        // Sort the labels within each project alphabetically
+        const sortedLabels = project.labels.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
         const projectItem = document.createElement("a");
         projectItem.className = "project-item";
@@ -27,7 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="item-footer">
                     <div class="item-labels">
-                        ${project.labels.map(label => `<span class="label">${label}</span>`).join(' ')}
+                        ${sortedLabels.map(label => {
+                            const lowerCaseLabel = label.toLowerCase();
+                            const capitalizedLabel = lowerCaseLabel.charAt(0).toUpperCase() + lowerCaseLabel.slice(1);
+                            return `<span class="label">${capitalizedLabel}</span>`;
+                        }).join(' ')}
                     </div>
                 </div>
             </div>
@@ -37,10 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const sortedLabels = Object.entries(labelCounts).sort((a, b) => b[1] - a[1]);
 
-    sortedLabels.forEach(([label, count]) => {
+    // Filter and display only labels with count > 1
+    sortedLabels.filter(([label, count]) => count > 1).forEach(([label, count]) => {
+        const capitalizedLabel = label.charAt(0).toUpperCase() + label.slice(1);
         const labelItem = document.createElement("div");
         labelItem.className = "label-item";
-        labelItem.innerHTML = `<span class="label">${label}</span>: ${count}`;
+        labelItem.innerHTML = `<span class="label">${capitalizedLabel}</span>: ${count}`;
         labelSummary.appendChild(labelItem);
     });
 });

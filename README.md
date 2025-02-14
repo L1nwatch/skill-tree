@@ -23,6 +23,4 @@ Based on a couple of works by Mike Bostock, Radial Reingold–Tilford Tree and C
 
 One of the web page templates is offered by **Mason Fox**.
 
-A Pen created on CodePen.
-
-Original URL: [https://codepen.io/masonfox/pen/BzoJQY](https://codepen.io/masonfox/pen/BzoJQY).
+A Pen created on CodePen. Original URL: [https://codepen.io/masonfox/pen/BzoJQY](https://codepen.io/masonfox/pen/BzoJQY).

@@ -4,7 +4,7 @@ Generate a skill tree based on my personal skill set and hand-on project experie
 
 [l1nwatch.github.io/skill-tree/](https://l1nwatch.github.io/skill-tree/)
 
-[l1nwatch.github.io/skill-tree/project_list/project_list](https://l1nwatch.github.io/skill-tree/project_list)
+[l1nwatch.github.io/skill-tree/project_list/](https://l1nwatch.github.io/skill-tree/project_list/project_list.html)
 
 ## How to use
 

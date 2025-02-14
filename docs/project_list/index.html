@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="./projects.js" defer></script>
     <script defer>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const projectList = document.querySelector(".project-list");
             projects.forEach(project => {
                 const projectItem = document.createElement("a");
@@ -24,11 +24,8 @@
                             <p>${project.description}</p>
                         </div>
                         <div class="item-footer">
-                            <div class="item-person">
-                                <img src="${project.img}" alt="${project.person}"/><span>${project.person}</span>
-                            </div>
-                            <div class="date">
-                                <h5>${project.date}</h5>
+                            <div class="item-labels">
+                                ${project.labels.map(label => `<span class="label">${label}</span>`).join(' ')}
                             </div>
                         </div>
                     </div>
@@ -46,6 +43,9 @@
             <h2>Hand-on Experience</h2>
             <p>This webpage showcases parts of my past projects and the related technologies.</p>
         </header>
+        <div class="label-summary">
+            <!-- Label summary will be loaded here by JavaScript -->
+        </div>
     </div>
     <div class="right">
         <div class="project-list">

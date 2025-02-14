@@ -1,8 +1,10 @@
 # skill-tree
 
-Generate a skill tree based on my personal skill set.
+Generate a skill tree based on my personal skill set and hand-on project experience.
 
 [l1nwatch.github.io/skill-tree/](https://l1nwatch.github.io/skill-tree/)
+
+[l1nwatch.github.io/skill-tree/project_list/project_list](https://l1nwatch.github.io/skill-tree/project_list)
 
 ## How to use
 

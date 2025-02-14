@@ -1,6 +1,7 @@
 const projects_info = [
     {
         "title": "aaaa",
+        "company": "Company A",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi suscipit obcaecati cumque fugit quia ullam",
         "labels": [
             "JavaScript",
@@ -12,6 +13,7 @@ const projects_info = [
     },
     {
         "title": "RGA",
+        "company": "Company B",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi suscipit obcaecati cumque fugit quia ullam",
         "labels": [
             "Python",

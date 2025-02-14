@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         projectItem.innerHTML = `
             <div class="item-inner">
                 <div class="content">
-                    <h3>${project.title}</h3>
+                    <h3>${project.title} - <span class="company">${project.company}</span></h3>
                     <p>${project.description}</p>
                 </div>
                 <div class="item-footer">

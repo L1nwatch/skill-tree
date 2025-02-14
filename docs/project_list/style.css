@@ -251,3 +251,14 @@ a:hover, a:focus {
     margin: 5px; /* Add margin to create space between labels */
     display: inline-block; /* Display labels inline */
 }
+
+.project-item .company {
+    margin-left: auto;
+    font-style: italic;
+    color: #555; /* Change this color to your desired color */
+}
+
+.project-item .title {
+    font-weight: bold;
+    color: #007bff; /* Blue color */
+}

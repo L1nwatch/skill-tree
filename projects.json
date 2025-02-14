@@ -1,7 +1,7 @@
 [
   {
-    "title": "aaaa",
-    "company": "Company A",
+    "title": "Skill Tree",
+    "company": "Personal",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi suscipit obcaecati cumque fugit quia ullam",
     "labels": [
       "JavaScript",
@@ -9,7 +9,8 @@
       "Python",
       "Flask",
       "Web Development"
-    ]
+    ],
+    "url": "https://l1nwatch.github.io/skill-tree/"
   },
   {
     "title": "RGA",

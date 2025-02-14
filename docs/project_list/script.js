@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="item-inner">
                 <div class="content">
                     <h3 style="display: flex; justify-content: space-between;">
-                        <span class="title">${project.title}</span>
+                        ${project.url ? `<a href="${project.url}" class="title" target="_blank">${project.title}</a>` : `<span class="title">${project.title}</span>`}
                         <span class="company">${project.company}</span>
                     </h3>
                     <p>${project.description}</p>

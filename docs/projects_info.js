@@ -1,14 +1,14 @@
 const projects_info = [
     {
-        "title": "Hands-on Experience List",
+        "title": "Skills Hub",
         "company": "Personal",
-        "description": "Store my hands-on experience information in a JSON file, then use Python to load the JSON data and generate a JavaScript file. This allows the HTML file to load the content and display it on a web page. This web page is published on GitHub Pages.",
+        "description": "Store my hands-on experience&skills information in a JSON file, then use Python to load the JSON data and generate a JavaScript file. This allows the HTML file to load the content and display it on a web page. This web page is published on GitHub Pages.",
         "labels": [
             "html/css/js",
             "python",
             "GitHub-Actions"
         ],
-        "url": "https://l1nwatch.github.io/skill-tree/project_list/project_list.html"
+        "url": "https://l1nwatch.github.io/skill-tree/"
     },
     {
         "title": "Video Content Recognition",
@@ -20,17 +20,6 @@ const projects_info = [
             "Python",
             "Prompt-engineering"
         ]
-    },
-    {
-        "title": "Skill Tree",
-        "company": "Personal",
-        "description": "Store my skills information in a JSON file, then use Python to load the JSON data and generate a JavaScript file. This allows the HTML file to load the content and display it on a web page. This web page is published on GitHub Pages.",
-        "labels": [
-            "html/css/js",
-            "python",
-            "GitHub-Actions"
-        ],
-        "url": "https://l1nwatch.github.io/skill-tree/"
     },
     {
         "title": "Auto Lotto",

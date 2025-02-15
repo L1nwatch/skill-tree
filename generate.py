@@ -11,7 +11,7 @@ __author__ = '__L1n__w@tch'
 
 def generate_skills():
     json_path = os.path.join(os.path.dirname(__file__), "skills.json")
-    js_path = os.path.join(os.path.dirname(__file__), "docs", "skills.js")
+    js_path = os.path.join(os.path.dirname(__file__), "docs", "skills-hub", "skills.js")
 
     # Read JSON file
     with open(json_path, 'r', encoding='utf-8') as json_file:
@@ -27,7 +27,7 @@ def generate_skills():
 
 def generate_projects():
     json_file = os.path.join(os.path.dirname(__file__), "projects.json")
-    js_file = os.path.join(os.path.dirname(__file__), "docs", "project_list", "projects_info.js")
+    js_file = os.path.join(os.path.dirname(__file__), "docs", "projects_info.js")
     with open(json_file, 'r') as f:
         projects = json.load(f)
 

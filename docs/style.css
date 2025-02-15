@@ -262,3 +262,7 @@ a:hover, a:focus {
     font-weight: bold;
     color: #007bff; /* Blue color */
 }
+
+h3 a {
+    color: #999; /* Lighter color */
+}

@@ -2,31 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Skill Tree</title>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.10/d3.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="tree.css">
-    <link rel="stylesheet" type="text/css" href="others.css">
+    <title>Hands-on Project Experience List</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="style.css">
+    <script src="projects_info.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-<div class="header">
-    <span>Personal Skill Set</span>
-    <div class="links">
-        <a href="https://l1nwatch.github.io/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Website">
-        </a>
-        <a href="https://github.com/L1nwatch" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
-        </a>
-        <a href="https://www.linkedin.com/in/feng-lin/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/61/61109.png" alt="LinkedIn">
-        </a>
-        <a href="https://l1nwatch.github.io/skill-tree/project_list/project_list.html" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Projects">
-        </a>
+<div class="page">
+    <div class="left">
+        <header>
+            <a href="https://www.linkedin.com/in/feng-lin/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/61/61109.png" alt="LinkedIn"
+                     style="width:24px;height:24px;">
+            </a>
+            <a href="https://github.com/L1nwatch" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"
+                     style="width:24px;height:24px;">
+            </a>
+            <a href="https://l1nwatch.github.io/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Website"
+                     style="width:24px;height:24px;">
+            </a>
+            <h1>Skill-Project Map</h1>
+            <h3><a href="https://l1nwatch.github.io/skill-tree/skills-hub/" target="_blank">Skills-Hub</a></h3>
+            <p>This webpage showcases parts of my past projects_info and the related technologies.</p>
+            <div class="label-summary">
+                <!-- Label summary will be loaded here by JavaScript -->
+            </div>
+        </header>
+    </div>
+    <div class="right">
+        <div class="project-list">
+            <!-- Project items will be loaded here by JavaScript -->
+        </div>
     </div>
 </div>
-<script src="skills.js"></script>
-<script src="script.js"></script>
 </body>
 </html>

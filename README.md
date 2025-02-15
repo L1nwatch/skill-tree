@@ -4,14 +4,14 @@ Generate a skill tree based on my personal skill set and hand-on project experie
 
 [l1nwatch.github.io/skill-tree/](https://l1nwatch.github.io/skill-tree/)
 
-[l1nwatch.github.io/skill-tree/project_list/](https://l1nwatch.github.io/skill-tree/project_list/project_list.html)
+[l1nwatch.github.io/skill-tree/skills-hub/](https://l1nwatch.github.io/skill-tree/skills-hub/)
 
 ## How to use
 
-1. edit `skills.json` to add your own skills, follow the current format
+1. edit `skills.json` and `projects.json` to add your own skills, follow the current format
 2. run `python3 generate.py` to generate the web pages
 3. open the `docs/index.html` file in your browser to see the skills set
-4. open the `docs/project_list/index.html` file in your browser to see the hand-on experience list
+4. open the `docs/skills-hub/index.html` file in your browser to see the hand-on experience list
 
 ## Acknowledgements
 
